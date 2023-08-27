@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پروژه مقالات ایرانی</title>
+
+    
+    <link rel="stylesheet" href="./css/app.css" />
+    <script src="./js/app.js"></script>
+
+  </head>
+  <body class="font-sans antialiased bg-gray-100">
+    <div class="min-h-screen container mx-auto">
+        <nav x-data="{ open: false, open2: false }" class="bg-gray-800 rtl mx-4 text-white border-b rounded-b-lg border-gray-100">
+<!-- Primary Navigation Menu -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+        <div class="flex w-full">
+            <!-- Logo -->
+            <div class="flex-shrink-0 flex items-center">
+                <a href="/" class="flex flex-row items-center">
+                     <img src="./images/logo.png" class="h-10" border="0" alt="edub.ir logo"/>
+                        <span class="inline-block mr-3 text-2xl text-yellow-400">بانک مقالات ایران</span>
+                </a>
+            </div>
+         
+
+            <!-- Navigation Links -->
+            <div class="hidden space-x-8 sm:-my-px sm:mr-10 xl:flex">
+                <span></span>
+                 <a class="inline-flex items-center px-1 pt-1 border-b-4 border-transparent text-sm font-medium leading-5 text-white hover:text-gray-200 hover:border-gray-300 focus:outline-none focus:text-gray-200 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/scientific-articles">
+مقالات علمی و پژوهشی
+</a>
+
+                 <a class="inline-flex items-center px-1 pt-1 border-b-4 border-transparent text-sm font-medium leading-5 text-white hover:text-gray-200 hover:border-gray-300 focus:outline-none focus:text-gray-200 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/phd">
+پایان نامه و پروپوزال
+</a>
+
+                 <a class="inline-flex items-center px-1 pt-1 border-b-4 border-transparent text-sm font-medium leading-5 text-white hover:text-gray-200 hover:border-gray-300 focus:outline-none focus:text-gray-200 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/book">
+معرفی کتاب
+</a>
+
+                 <a class="inline-flex items-center px-1 pt-1 border-b-4 border-transparent text-sm font-medium leading-5 text-white hover:text-gray-200 hover:border-gray-300 focus:outline-none focus:text-gray-200 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/power">
+قالب پاورپوینت
+</a>
+
+                 <a class="inline-flex items-center px-1 pt-1 border-b-4 border-transparent text-sm font-medium leading-5 text-white hover:text-gray-200 hover:border-gray-300 focus:outline-none focus:text-gray-200 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/education">
+اخبار و مقالات
+</a>
+
+                 <a class="inline-flex items-center px-1 pt-1 border-b-4 border-transparent text-sm font-medium leading-5 text-white hover:text-gray-200 hover:border-gray-300 focus:outline-none focus:text-gray-200 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/test">
+آزمون‌ها
+</a>
+
+                 <a class="inline-flex items-center px-1 pt-1 border-b-4 border-transparent text-sm font-medium leading-5 text-white hover:text-gray-200 hover:border-gray-300 focus:outline-none focus:text-gray-200 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/software">
+معرفی نرم افزار
+</a>
+
+            </div>
+            <div class="flex-1 hidden xl:flex items-center">
+                <form class="flex-1 relative" action="https://edub.ir/archive" id="archive_form">
+                    <input type="text" name="search" class="flex-1 w-full rounded-lg text-gray-900" placeholder="جستجو" value="" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-3" fill="none" viewBox="0 0 24 24" stroke="#666" onclick="document.getElementById('archive_form').submit()">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </form>
+            </div>
+        </div>
+
+        <!-- Hamburger menu -->
+        <div class="-mr-2 flex items-center xl:hidden">
+            <button @click="open2 = ! open2" class="navbar-burger inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path :class="{'hidden': open2, 'inline-flex': ! open2 }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    <path :class="{'hidden': ! open2, 'inline-flex': open2 }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <button @click="open = ! open" class="navbar-close inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div :class="{'block': open2, 'hidden': ! open2}" class="hidden xl:hidden">
+    <div class="pt-2 pb-3 px-3 space-y-1">
+        <form class="relative" action="https://edub.ir/archive" id="archive_form2">
+            <input type="text" name="search" class="w-full rounded-lg text-gray-900" placeholder="جستجو" value="" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-3" fill="none" viewBox="0 0 24 24" stroke="#666" onclick="document.getElementById('archive_form2').submit()">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </form>
+    </div>
+</div>
+<!-- Responsive Navigation Menu -->
+<div :class="{'block': open, 'hidden': ! open}" class="navbar-menu hidden xl:hidden">
+    <div class="pt-2 pb-3 space-y-1">
+         <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/scientific-articles">
+مقالات علمی و پژوهشی
+</a>
+
+         <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/phd">
+پایان نامه و پروپوزال
+</a>
+
+         <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/book">
+معرفی کتاب
+</a>
+
+         <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/power">
+قالب پاورپوینت
+</a>
+
+         <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/education">
+اخبار و مقالات
+</a>
+
+         <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/test">
+آزمون‌ها
+</a>
+
+         <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://edub.ir/software">
+معرفی نرم افزار
+</a>
+
+    </div>
+</div>
+</nav>
+          
+        <!-- Page Content -->
+        <main>
+            <div class="py-4 px-4 max-w-full grid grid-cols-1 gap-3 rtl">
+     <div class="w-full">
+<div class="flex flex-row justify-between items-center mt-6 px-3">
+    <h3 class="text-2xl">اخبار و مقالات</h3>
+            <a href="https://edub.ir/education" class="bg-gray-800 text-white px-5 py-1 flex flex-row items-center rounded justify-center w-36">
+        <svg class="group-hover:text-light-blue-600 text-light-blue-500 ml-2" width="12" height="20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+        </svg>
+        مطالب بیشتر
+    </a>
+        </div>
+<div class="relative divide-y-2 grid grid-cols-1 md:grid-cols-2">
+                <a class="flex shadow-lg  bg-purple-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/education/view/22677:%22+%D8%B3%D9%81%DB%8C%D8%AF+%22+%D8%B1%D9%86%DA%AF+%D8%A8%D8%B1%DA%AF%D8%B2%DB%8C%D8%AF%D9%87+%D8%A7%D9%85%D8%B1%D9%88%D8%B2">
+            <img src="./images/1.jpg" title="&quot; سفید &quot; رنگ برگزیده امروز" alt="&quot; سفید &quot; رنگ برگزیده امروز" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">به مناسبت روز پزشک</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+&quot; سفید &quot; رنگ برگزیده امروز</h3>
+                <div class="px-3">نخستین روز شهریورماه هر سال به&zwnj;&lrm;نام روز پزشک، این سفیدپوشان سبزدل نامگذاری شده است، پزشکانی که بعد از خدا حال خوب و بد ما به دست آن هاست ولی این روزها کسی حال آن ها را نمی پُرسد.</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-purple-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/education/view/22675:%D9%88%D8%B8%D8%A7%DB%8C%D9%81+%D8%B2%D9%86+%D9%86%D8%B3%D8%A8%D8%AA+%D8%A8%D9%87+%D8%B4%D9%88%D9%87%D8%B1+%D8%AF%D8%B1+%D8%B2%D9%86%D8%AF%DA%AF%DB%8C+%D9%85%D8%B4%D8%AA%D8%B1%DA%A9">
+            <img src="./images/2.jpg" title="وظایف زن نسبت به شوهر در زندگی مشترک" alt="وظایف زن نسبت به شوهر در زندگی مشترک" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">مقالات اجتماعی</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+
+ 
+وظایف زن نسبت به شوهر در زندگی مشترک</h3>
+                <div class="px-3">زن و شوهر در زندگی مشترک هر کدام وظایفی را در قبال یکدیگر بر عهده دارند که با عمل کردن به وظایف خود، می&zwnj;توانند زندگی خوب و موفقی داشته باشند.</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-purple-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/education/view/22674:%DA%86%D9%87+%DA%A9%D8%B3%D8%A7%D9%86%DB%8C+%D8%AF%DA%86%D8%A7%D8%B1+%D9%85%D8%B1%DA%AF+%D8%B2%D9%88%D8%AF%D8%B1%D8%B3+%D9%85%DB%8C+%D8%B4%D9%88%D9%86%D8%AF%D8%9F">
+            <img src="./images/3.jpg" title="چه کسانی دچار مرگ زودرس می شوند؟" alt="چه کسانی دچار مرگ زودرس می شوند؟" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">مقالات پزشکی و سلامت</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+چه کسانی دچار مرگ زودرس می شوند؟</h3>
+                <div class="px-3">یک مطالعه جدید ادعا می کند که خطرات قلبی ناشی از آلودگی هوا در سراسر جهان در سه دهه گذشته افزایش یافته است.&nbsp;</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-purple-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/education/view/22673:%D8%B1%DA%A9%D9%88%D8%B1%D8%AF%D8%B4%DA%A9%D9%86%DB%8C+%D9%85%D9%88%D8%AC+%DA%AF%D8%B1%D9%85%D8%A7+%D8%AF%D8%B1+%DB%B8+%D8%B3%D8%A7%D9%84+%DA%AF%D8%B0%D8%B4%D8%AA%D9%87+%D8%AC%D9%87%D8%A7%D9%86%D8%9B+%DA%86%D9%87+%D8%A8%D8%A7%DB%8C%D8%AF+%DA%A9%D8%B1%D8%AF%D8%9F">
+            <img src="./images/4.jpg" title="رکوردشکنی موج گرما در ۸ سال گذشته جهان؛ چه باید کرد؟" alt="رکوردشکنی موج گرما در ۸ سال گذشته جهان؛ چه باید کرد؟" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">مقالات محیط زیست</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+رکوردشکنی موج گرما در ۸ سال گذشته جهان؛ چه باید کرد؟</h3>
+                <div class="px-3">گذر جهان از &laquo;گرمایش&raquo; شدید زمین به &laquo;جوشش&raquo;، زنگ خطر را به صدا در آورده&zwnj; است و این پرسش را به ذهن متبادر می&zwnj;سازد که ریشه این بحران کجاست و مقصر کیست؟ مهمتر اینکه کشورهای جهان برای برون&zwnj;رفت از این بحران رو به تعمیق،</div>
+            </div>
+        </a>
+        </div>
+<div class="2xl:focus:bg-indigo-700"></div>
+</div>
+
+     <div class="w-full">
+<div class="flex flex-row justify-between items-center mt-6 px-3">
+    <h3 class="text-2xl">آزمون‌ها</h3>
+            <a href="https://edub.ir/test" class="bg-gray-800 text-white px-5 py-1 flex flex-row items-center rounded justify-center w-36">
+        <svg class="group-hover:text-light-blue-600 text-light-blue-500 ml-2" width="12" height="20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+        </svg>
+        مطالب بیشتر
+    </a>
+        </div>
+<div class="relative divide-y-2 grid grid-cols-1 md:grid-cols-2">
+                <a class="flex shadow-lg  bg-indigo-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/test/view/22655:%D8%AF%D9%81%D8%AA%D8%B1%DA%86%D9%87+%D8%B3%D8%A6%D9%88%D8%A7%D9%84%D8%A7%D8%AA+%D9%85%D8%B1%D8%AD%D9%84%D9%87+%D8%A7%D9%88%D9%84+%DA%A9%D9%86%DA%A9%D9%88%D8%B1+%D8%B3%D8%B1%D8%A7%D8%B3%D8%B1%DB%8C+%D9%87%D9%86%D8%B1+%D8%B3%D8%A7%D9%84+1402%C2%A0">
+            <img src="./images/5.jpg" title="دفترچه سئوالات مرحله اول کنکور سراسری هنر سال 1402 " alt="دفترچه سئوالات مرحله اول کنکور سراسری هنر سال 1402 " class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">سئوالات کنکور سراسری سال 1402</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+دفترچه سئوالات مرحله اول کنکور سراسری هنر سال 1402 </h3>
+                <div class="px-3">در این آزمون داوطلبان گروه آزمایشی هنر عصر جمعه 30 دی ماه به سئوالات اختصاصی این گروه آزمایشی به شرح زیر پاسخ دادند&nbsp;</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-indigo-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/test/view/22654:%D8%AF%D9%81%D8%AA%D8%B1%DA%86%D9%87+%D8%B3%D8%A6%D9%88%D8%A7%D9%84%D8%A7%D8%AA+%D9%85%D8%B1%D8%AD%D9%84%D9%87+%D8%A7%D9%88%D9%84+%DA%A9%D9%86%DA%A9%D9%88%D8%B1+%D8%B3%D8%B1%D8%A7%D8%B3%D8%B1%DB%8C+%D8%B2%D8%A8%D8%A7%D9%86+%D8%A7%D9%86%DA%AF%D9%84%DB%8C%D8%B3%DB%8C+%D8%B3%D8%A7%D9%84+1402+%D8%A8%D9%87+%D9%87%D9%85%D8%B1%D8%A7%D9%87+%D9%BE%D8%A7%D8%B3%D8%AE%D9%86%D8%A7%D9%85%D9%87%C2%A0">
+            <img src="./images/6.jpg" title="دفترچه سئوالات مرحله اول کنکور سراسری زبان انگلیسی سال 1402 به همراه پاسخنامه " alt="دفترچه سئوالات مرحله اول کنکور سراسری زبان انگلیسی سال 1402 به همراه پاسخنامه " class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">سئوالات و پاسخنامه کنکور سراسری سال 1402</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+دفترچه سئوالات مرحله اول کنکور سراسری زبان انگلیسی سال 1402 به همراه پاسخنامه </h3>
+                <div class="px-3">در این آزمون داوطلبان گروه آزمایشی زبان عصر پنج شنبه 29 دی ماه به 70 سئوال اختصاصی این گروه آزمایشی در مدت 105 پاسخ دادند&nbsp;</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-indigo-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/test/view/22653:%D8%AF%D9%81%D8%AA%D8%B1%DA%86%D9%87+%D8%B3%D8%A6%D9%88%D8%A7%D9%84%D8%A7%D8%AA+%D9%85%D8%B1%D8%AD%D9%84%D9%87+%D8%A7%D9%88%D9%84+%DA%A9%D9%86%DA%A9%D9%88%D8%B1+%D8%B3%D8%B1%D8%A7%D8%B3%D8%B1%DB%8C+%D8%B9%D9%84%D9%88%D9%85+%D8%AA%D8%AC%D8%B1%D8%A8%DB%8C+%D8%B3%D8%A7%D9%84+1402+%D8%A8%D9%87+%D9%87%D9%85%D8%B1%D8%A7%D9%87+%D9%BE%D8%A7%D8%B3%D8%AE%D9%86%D8%A7%D9%85%D9%87%C2%A0">
+            <img src="./images/7.jpg" title="دفترچه سئوالات مرحله اول کنکور سراسری علوم تجربی سال 1402 به همراه پاسخنامه " alt="دفترچه سئوالات مرحله اول کنکور سراسری علوم تجربی سال 1402 به همراه پاسخنامه " class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">سئوالات و پاسخنامه سئوالات کنکور سراسری سال 1402</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+دفترچه سئوالات مرحله اول کنکور سراسری علوم تجربی سال 1402 به همراه پاسخنامه </h3>
+                <div class="px-3">در این آزمون داوطلبان گروه آزمایشی علوم تجربی صبح پنج شنبه 29 دی ماه به سئوالات اختصاصی سه دفترچه به شرح زیر پاسخ دادند&nbsp;</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-indigo-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/test/view/22652:%D8%AF%D9%81%D8%AA%D8%B1%DA%86%D9%87+%D8%B3%D8%A6%D9%88%D8%A7%D9%84%D8%A7%D8%AA+%D9%85%D8%B1%D8%AD%D9%84%D9%87+%D8%A7%D9%88%D9%84+%DA%A9%D9%86%DA%A9%D9%88%D8%B1+%D8%B3%D8%B1%D8%A7%D8%B3%D8%B1%DB%8C+%D8%B9%D9%84%D9%88%D9%85+%D8%B1%DB%8C%D8%A7%D8%B6%DB%8C+%D8%B3%D8%A7%D9%84+1402+%D8%A8%D9%87+%D9%87%D9%85%D8%B1%D8%A7%D9%87+%D9%BE%D8%A7%D8%B3%D8%AE%D9%86%D8%A7%D9%85%D9%87%C2%A0">
+            <img src="./images/8.jpg" title="دفترچه سئوالات مرحله اول کنکور سراسری علوم ریاضی سال 1402 به همراه پاسخنامه " alt="دفترچه سئوالات مرحله اول کنکور سراسری علوم ریاضی سال 1402 به همراه پاسخنامه " class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">سئوالات و پاسخنامه کنکور سراسری سال 1402</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+دفترچه سئوالات مرحله اول کنکور سراسری علوم ریاضی سال 1402 به همراه پاسخنامه </h3>
+                <div class="px-3">در این آزمون داوطلبان گروه آزمایشی علوم ریاضی صبح جمعه 30 دی ماه به سئوالات اختصاصی دو دفترچه به شرح زیر پاسخ دادند&nbsp;</div>
+            </div>
+        </a>
+        </div>
+<div class="2xl:focus:bg-indigo-700"></div>
+</div>
+
+     <div class="w-full">
+<div class="flex flex-row justify-between items-center mt-6 px-3">
+    <h3 class="text-2xl">قالب پاورپوینت</h3>
+            <a href="https://edub.ir/power" class="bg-gray-800 text-white px-5 py-1 flex flex-row items-center rounded justify-center w-36">
+        <svg class="group-hover:text-light-blue-600 text-light-blue-500 ml-2" width="12" height="20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+        </svg>
+        مطالب بیشتر
+    </a>
+        </div>
+<div class="relative divide-y-2 grid grid-cols-1 md:grid-cols-2">
+                <a class="flex shadow-lg  bg-yellow-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/power/view/22656:%D9%82%D8%A7%D9%84%D8%A8+%D9%BE%D8%A7%D9%88%D8%B1%D9%BE%D9%88%DB%8C%D9%86%D8%AA+%DA%AF%D8%B1%D8%A7%D9%81%DB%8C%DA%A9%DB%8C+%D9%88+%D9%87%D9%86%D8%B1%DB%8C+%D8%A8%D8%B1%D8%A7%DB%8C+%D8%A7%D8%B1%D8%A7%D8%A6%D9%87+%D9%BE%DA%98%D9%88%D9%87%D8%B4">
+            <img src="./images/9.jpg" title="قالب پاورپوینت گرافیکی و هنری برای ارائه پژوهش" alt="قالب پاورپوینت گرافیکی و هنری برای ارائه پژوهش" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">قالبهای پاورپوینت</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+قالب پاورپوینت گرافیکی و هنری برای ارائه پژوهش</h3>
+                <div class="px-3">این قالب گرافیکی و جذاب پاورپوینت دارای 4 صفحه زیبا و با طراحی متنوع است</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-yellow-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/power/view/22605:%D9%82%D8%A7%D9%84%D8%A8+%D9%BE%D8%A7%D9%88%D8%B1%D9%BE%D9%88%DB%8C%D9%86%D8%AA+%DA%AF%D8%B1%D8%A7%D9%81%DB%8C%DA%A9%DB%8C+%D8%AF%D9%81%D8%A7%D8%B9+%D8%AF%DA%A9%D8%AA%D8%B1%D8%A7+%D9%88+%D8%A7%D8%B1%D8%B4%D8%AF+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D9%BE%DB%8C%D8%A7%D9%85+%D9%86%D9%88%D8%B1">
+            <img src="./images/10.jpg" title="قالب پاورپوینت گرافیکی دفاع دکترا و ارشد دانشگاه پیام نور" alt="قالب پاورپوینت گرافیکی دفاع دکترا و ارشد دانشگاه پیام نور" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                
+                                        <h4 class="px-3 text-base">قالب آماده پاورپوینت</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+قالب پاورپوینت گرافیکی دفاع دکترا و ارشد دانشگاه پیام نور</h3>
+                <div class="px-3">دانشجویان و پژوهشگران دانشگاه پیام نور می توانند با دانلود این قالب آماده پاورپوینت گرافیکی که دارای آرم دانشگاه پیام نور&nbsp; است برای ارائه پایان نامه ها و دفاعیه دکترا و کارشناسی ارشد استفاده نمایند</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-yellow-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/power/view/22581:%D9%82%D8%A7%D9%84%D8%A8+%D9%BE%D8%A7%D9%88%D8%B1%D9%BE%D9%88%DB%8C%D9%86%D8%AA+%DA%AF%D8%B1%D8%A7%D9%81%DB%8C%DA%A9%DB%8C+%D8%AF%D9%81%D8%A7%D8%B9+%D8%AF%DA%A9%D8%AA%D8%B1%D8%A7+%D9%88+%D8%A7%D8%B1%D8%B4%D8%AF+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%A2%D8%B2%D8%A7%D8%AF+%D8%A7%D8%B3%D9%84%D8%A7%D9%85%DB%8C">
+            <img src="./images/11.jpg" title="قالب پاورپوینت گرافیکی دفاع دکترا و ارشد دانشگاه آزاد اسلامی" alt="قالب پاورپوینت گرافیکی دفاع دکترا و ارشد دانشگاه آزاد اسلامی" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">قالب آماده پاورپوینت</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+قالب پاورپوینت گرافیکی دفاع دکترا و ارشد دانشگاه آزاد اسلامی</h3>
+                <div class="px-3">دانشجویان و پژوهشگران دانشگاه آزاد اسلامی می توانند با دانلود این قالب آماده پاورپوینت گرافیکی که دارای آرم دانشگاه آزاد است برای ارائه پایان نامه ها و دفاعیه دکترا و کارشناسی ارشد استفاده نمایند</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-yellow-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/power/view/22476:%D9%82%D8%A7%D9%84%D8%A8+%D9%BE%D8%A7%D9%88%D9%BE%D9%88%DB%8C%D9%86%D8%AA+%DA%AF%D8%B1%D8%A7%D9%81%DB%8C%DA%A9%DB%8C+%D9%81%D9%86%D8%A7%D9%88%D8%B1%DB%8C+%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA+%D9%88+%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%D8%A7%D8%AA">
+            <img src="./images/12.jpg" title="قالب پاوپوینت گرافیکی فناوری اطلاعات و ارتباطات" alt="قالب پاوپوینت گرافیکی فناوری اطلاعات و ارتباطات" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">قالب آماده پاورپوینت</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+قالب پاوپوینت گرافیکی فناوری اطلاعات و ارتباطات</h3>
+                <div class="px-3">دانشجویان ، پژوهشگران، دانش آموزان و علاقمندان گرامی می توانند با دانلود قالبهای پاورپوینت آماده و گرافیکی جالب که در بانک مقالات ایران منتشر شده است به راحتی مقالات و پژوهشهای خود را ارائه نمایند .</div>
+            </div>
+        </a>
+        </div>
+<div class="2xl:focus:bg-indigo-700"></div>
+</div>
+
+     <div class="w-full">
+<div class="flex flex-row justify-between items-center mt-6 px-3">
+    <h3 class="text-2xl">مقالات علمی و پژوهشی</h3>
+            <a href="https://edub.ir/scientific-articles" class="bg-gray-800 text-white px-5 py-1 flex flex-row items-center rounded justify-center w-36">
+        <svg class="group-hover:text-light-blue-600 text-light-blue-500 ml-2" width="12" height="20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+        </svg>
+        مطالب بیشتر
+    </a>
+        </div>
+<div class="relative divide-y-2 grid grid-cols-1 md:grid-cols-2">
+                <a class="flex shadow-lg  bg-green-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/scientific-articles/view/21662:%D9%85%D9%82%D8%A7%D9%84%D9%87+%D8%AC%D8%A7%DB%8C%DA%AF%D8%A7%D9%87+%D9%82%D8%A7%D9%86%D9%88%D9%86%DB%8C+%D8%B4%D9%88%D8%A7%D8%B1%DB%8C+%D8%B9%D8%A7%D9%84%DB%8C+%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8+%D9%81%D8%B1%D9%87%D9%86%DA%AF%DB%8C+%D9%88+%D9%85%D8%B1%D8%AA%D8%A8%D9%87+%D9%85%D8%B5%D9%88%D8%A8%D8%A7%D8%AA+%D8%A2%D9%86">
+            <img src="./images/13.jpg" title="مقاله جایگاه قانونی شواری عالی انقلاب فرهنگی و مرتبه مصوبات آن" alt="مقاله جایگاه قانونی شواری عالی انقلاب فرهنگی و مرتبه مصوبات آن" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">مقالات حقوق عمومی</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+مقاله جایگاه قانونی شواری عالی انقلاب فرهنگی و مرتبه مصوبات آن</h3>
+                <div class="px-3">در اين مقاله علمي و پژوهشي به مباحث مؤسسه دولتی؛ ستاد انقلاب فرهنگی؛ شورای عالی انقلاب فرهنگی؛ مجلس خبرگان قانون اساسی؛ مجلس شورای اسلامی؛ قانون اساسی؛ دیوان عدالت اداری؛ شورای نگهبان پرداخته شده است&nbsp;</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-green-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/scientific-articles/view/21661:%D9%85%D9%82%D8%A7%D9%84%D9%87+%D8%A8%D8%B1%D8%B1%D8%B3%DB%8C+%D9%82%D8%A7%D9%86%D9%88%D9%86+%DA%A9%D8%A7%D8%B1+%D9%88+%D8%B3%DB%8C%D8%A7%D8%B3%D8%AA+%D8%A7%D8%B4%D8%AA%D8%BA%D8%A7%D9%84">
+            <img src="./images/14.jpg" title="مقاله بررسی قانون کار و سیاست اشتغال" alt="مقاله بررسی قانون کار و سیاست اشتغال" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">مقالات حقوق عمومی</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+مقاله بررسی قانون کار و سیاست اشتغال</h3>
+                <div class="px-3">در اين مقاله علمي و پژوهشي به مباحث قانون کار ایران؛ اشتغال؛ حقوق کار؛ کارگر؛ کارفرما پرداخته شده است&nbsp;</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-green-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/scientific-articles/view/21660:%D9%85%D9%82%D8%A7%D9%84%D9%87+%D8%AD%D9%85%D8%A7%DB%8C%D8%AA+%D8%A7%D8%B2+%D8%A7%D9%82%D9%84%DB%8C%D8%AA%D9%87%D8%A7+%D8%AF%D8%B1+%D8%A7%D8%B3%D9%86%D8%A7%D8%AF+%D8%AC%D9%87%D8%A7%D9%86%DB%8C+%D8%AD%D9%82%D9%88%D9%82+%D8%A8%D8%B4%D8%B1">
+            <img src="./images/15.jpg" title="مقاله حمایت از اقلیتها در اسناد جهانی حقوق بشر" alt="مقاله حمایت از اقلیتها در اسناد جهانی حقوق بشر" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">مقالات حقوق عمومی</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+مقاله حمایت از اقلیتها در اسناد جهانی حقوق بشر</h3>
+                <div class="px-3">در اين مقاله علمي و پژوهشي به مباحث حقوق بشر؛ اقلیتها؛ عدم تبعیض؛ کمیته حقوق بشر؛ حق خود مختاری؛ استحاله اجباری؛ نسل&zwnj;کشی؛ پاکسازی قومی پرداخته شده است&nbsp;</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-green-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/scientific-articles/view/21659:%D9%85%D9%82%D8%A7%D9%84%D9%87+%D9%BE%DB%8C%D8%B4%E2%80%8C+%D8%A8%DB%8C%D9%86%DB%8C+%D9%86%D9%82%D8%B6+%D9%82%D8%B1%D8%A7%D8%B1%D8%AF%D8%A7%D8%AF">
+            <img src="./images/16.jpg" title="مقاله پیش‌ بینی نقض قرارداد" alt="مقاله پیش‌ بینی نقض قرارداد" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">مقالات حقوق عمومی</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+مقاله پیش‌ بینی نقض قرارداد</h3>
+                <div class="px-3">در اين مقاله علمي و پژوهشي به مباحث پیش&zwnj;بینی نقض قرارداد؛ تعلیق قرارداد؛ خیار تفلیس؛ خیار تعذیر تسلیم؛ حق حبس پرداخته شده است&nbsp;</div>
+            </div>
+        </a>
+        </div>
+<div class="2xl:focus:bg-indigo-700"></div>
+</div>
+
+     <div class="w-full">
+<div class="flex flex-row justify-between items-center mt-6 px-3">
+    <h3 class="text-2xl">معرفی کتاب</h3>
+            <a href="https://edub.ir/book" class="bg-gray-800 text-white px-5 py-1 flex flex-row items-center rounded justify-center w-36">
+        <svg class="group-hover:text-light-blue-600 text-light-blue-500 ml-2" width="12" height="20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+        </svg>
+        مطالب بیشتر
+    </a>
+        </div>
+<div class="relative divide-y-2 grid grid-cols-1 md:grid-cols-2">
+                <a class="flex shadow-lg  bg-red-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/book/view/22541:%D8%AA%D8%A7%D8%B2%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C+%D8%A2%D8%AB%D8%A7%D8%B1+%D8%AD%D8%B6%D8%B1%D8%AA+%D8%A2%DB%8C%D8%AA%E2%80%8C%D8%A7%D9%84%D9%84%D9%87+%D8%B5%D8%A7%D9%86%D8%B9%DB%8C">
+            <img src="./images/17.jpg" title="تازه‌های آثار حضرت آیت‌الله صانعی" alt="تازه‌های آثار حضرت آیت‌الله صانعی" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">معرفی کتاب</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+تازه‌های آثار حضرت آیت‌الله صانعی</h3>
+                <div class="px-3">در دومین سالگشت رحلت آیت&zwnj;الله العظمی صانعی (ره) یاد و خاطره این فقیه نواندیش را گرامی می&zwnj;داریم، فقیهی که همواره، فقه و فقاهتِ استادش امام خمینی(سلام&zwnj;الله علیه) را می&zwnj;ستود و در استمرار، تعمیق و توسعه آن مکتب، تلاش بسیار می&zwnj;نمو</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-red-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/book/view/22540:%D9%85%D8%B9%D8%B1%D9%81%DB%8C+%DA%A9%D8%AA%D8%A7%D8%A8+%C2%AB%D9%81%D9%82%D9%87+%D9%88+%D8%A7%D9%85%D9%86%DB%8C%D8%AA%C2%BB">
+            <img src="./images/18.jpg" title="معرفی کتاب «فقه و امنیت»" alt="معرفی کتاب «فقه و امنیت»" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">معرفی کتاب</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+معرفی کتاب «فقه و امنیت»</h3>
+                <div class="px-3">کتاب &laquo;فقه و امنیت (امنیت پژوهی در تراث فقه شیعه)&raquo; اثر محمداسماعیل نباتیان به همت نشر پژوهشگاه علوم و فرهنگ اسلامی به چاپ رسید.</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-red-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/book/view/22539:%D9%85%D8%B9%D8%B1%D9%81%DB%8C+%DA%A9%D8%AA%D8%A7%D8%A8+%DA%86%D8%B1%D8%A7+%D9%85%DB%8C%E2%80%8C%D8%AE%D9%88%D8%A7%D8%A8%DB%8C%D9%85">
+            <img src="./images/19.jpg" title="معرفی کتاب چرا می‌خوابیم" alt="معرفی کتاب چرا می‌خوابیم" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">معرفی کتاب</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+معرفی کتاب چرا می‌خوابیم</h3>
+                <div class="px-3">کتاب چرا می&zwnj;خوابیم نوشتۀ متیو واکر، یکی از پرفروش&zwnj;ترین و مؤثرترین آثار روانشناسانه در زمینه چیستی خواب و تأثیر آن بر زندگی و سلامت ماست که نامزد جایزۀ کتاب لس آنجلس تایمز در بخش علوم و فناوری شده است.</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-red-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/book/view/22538:%D9%85%D8%B9%D8%B1%D9%81%DB%8C+%DA%A9%D8%AA%D8%A7%D8%A8+%D9%82%D8%AF%D8%B1%D8%AA+%D8%AE%D9%84%D9%82+%DA%A9%D8%B3%D8%A8%E2%80%8C+%D9%88+%DA%A9%D8%A7%D8%B1+%D9%86%D9%88%D9%BE%D8%A7">
+            <img src="./images/20.jpg" title="معرفی کتاب قدرت خلق کسب‌ و کار نوپا" alt="معرفی کتاب قدرت خلق کسب‌ و کار نوپا" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">معرفی کتب جدید</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+معرفی کتاب قدرت خلق کسب‌ و کار نوپا</h3>
+                <div class="px-3">کتاب &laquo;قدرت خلق کسب&zwnj; و کار نوپا&raquo; با عنوان انگلیسی &laquo;The Lean Startup&raquo; اثر کارآفرین، وبلاگ&zwnj;نویس و نویسنده&zwnj;ای آمریکایی، اریک ریس است که اولین بار سال ۲۰۱۱ منتشر و توسط فرخ بافنده به فارسی برگردانده شد.</div>
+            </div>
+        </a>
+        </div>
+<div class="2xl:focus:bg-indigo-700"></div>
+</div>
+
+     <div class="w-full">
+<div class="flex flex-row justify-between items-center mt-6 px-3">
+    <h3 class="text-2xl">معرفی نرم افزار</h3>
+            <a href="https://edub.ir/software" class="bg-gray-800 text-white px-5 py-1 flex flex-row items-center rounded justify-center w-36">
+        <svg class="group-hover:text-light-blue-600 text-light-blue-500 ml-2" width="12" height="20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+        </svg>
+        مطالب بیشتر
+    </a>
+        </div>
+<div class="relative divide-y-2 grid grid-cols-1 md:grid-cols-2">
+                <a class="flex shadow-lg  bg-pink-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/software/view/19917:%D9%86%D8%B1%D9%85+%D8%A7%D9%81%D8%B2%D8%A7%D8%B1+%D8%B3%D8%A7%D8%AE%D8%AA+%D8%AC%D9%84%D9%88%D9%87+%D9%87%D8%A7%DB%8C+%D9%88%DB%8C%DA%98%D9%87+Boris+FX+Silhouette">
+            <img src="./images/21.jpg" title="نرم افزار ساخت جلوه های ویژه Boris FX Silhouette" alt="نرم افزار ساخت جلوه های ویژه Boris FX Silhouette" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">معرفی نرم افزارهای جدید</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+نرم افزار ساخت جلوه های ویژه Boris FX Silhouette</h3>
+                <div class="px-3">با پیشرفت روزانه ی صنعت جلوه های ویژه نیاز کاربران به برنامه هایی هر چه سریعتر و پیشرفته تر در این عرصه بیشتر از پیش می گردد. نرم افزار هایی که در عین کاربری ساده و قابل فهم بتوان با استفاده از آن ها جلوه هایی با کیفیت تولید نمود. Silhouette از جمله </div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-pink-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/software/view/19916:%D9%86%D8%B1%D9%85+%D8%A7%D9%81%D8%B2%D8%A7%D8%B1+%D9%85%D8%AA%D8%AD%D8%B1%DA%A9+%D8%B3%D8%A7%D8%B2%DB%8C+%D8%AA%D8%B5%D9%88%DB%8C%D8%B1+%D9%88+%D8%B3%D8%A7%D8%AE%D8%AA+%D8%A7%D9%86%DB%8C%D9%85%DB%8C%D8%B4%D9%86+DP+Animation+Maker">
+            <img src="./images/22.jpg" title="نرم افزار متحرک سازی تصویر و ساخت انیمیشن DP Animation Maker" alt="نرم افزار متحرک سازی تصویر و ساخت انیمیشن DP Animation Maker" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">معرفی نرم افزارهای جدید</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+نرم افزار متحرک سازی تصویر و ساخت انیمیشن DP Animation Maker</h3>
+                <div class="px-3">DP Animation Maker نرم افزاری قدرتمند و در عین حال با استفاده آسان برای طراحی و ساخت انمیشن و تصاویر متحرک است که ابزارهایی را در اختیار شما قرار می دهد تا با صرف کمترین زمان و تنها با چند کلیک قادر به ساخت تصاویر پس زمینه متحرک، انیمشن های GIF به من</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-pink-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/software/view/19915:%D9%86%D8%B1%D9%85+%D8%A7%D9%81%D8%B2%D8%A7%D8%B1+%D9%88%DB%8C%D8%B1%D8%A7%DB%8C%D8%B4+%D9%81%D8%A7%DB%8C%D9%84+%D9%87%D8%A7%DB%8C+%D9%88%DB%8C%D8%AF%D8%A6%D9%88%DB%8C%DB%8C+MAGIX+Movie+Edit+Pro+2022%C2%A0">
+            <img src="./images/23.jpg" title="نرم افزار ویرایش فایل های ویدئویی MAGIX Movie Edit Pro 2022 " alt="نرم افزار ویرایش فایل های ویدئویی MAGIX Movie Edit Pro 2022 " class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">معرفی نرم افزارهای جدید</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+نرم افزار ویرایش فایل های ویدئویی MAGIX Movie Edit Pro 2022 </h3>
+                <div class="px-3">یکی از ابزارهای دقیق ویرایش فایل های ویدئویی با بهره گیری از افکت های قابل تنظیم و منحصر به فرد نرم افزار MAGIX Movie Edit Pro می باشد. این ابزار بهترین و آسان ترین گزینه برای هر فردی است که می خواهد یک فایل ویدئویی بی ارزش و ناقص را به یک فیلم تاثیر</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-pink-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/software/view/19914:%D9%86%D8%B1%D9%85+%D8%A7%D9%81%D8%B2%D8%A7%D8%B1+%D8%AA%D8%A8%D8%AF%DB%8C%D9%84+%D8%B9%DA%A9%D8%B3+%D8%A8%D9%87+%D8%B7%D8%B1%D8%AD+%D9%87%D8%A7%DB%8C+%D8%B1%D9%86%DA%AF%DB%8C+%DA%A9%D8%A7%D8%B1%D8%AA%D9%88%D9%86%DB%8C+Cartoon+Art%C2%A0">
+            <img src="./images/24.jpg" title="نرم افزار تبدیل عکس به طرح های رنگی کارتونی Cartoon Art " alt="نرم افزار تبدیل عکس به طرح های رنگی کارتونی Cartoon Art " class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">معرفی نرم افزارهای جدید</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+نرم افزار تبدیل عکس به طرح های رنگی کارتونی Cartoon Art </h3>
+                <div class="px-3">Cartoon Art نرم افزاری برای تبدیل تصاویر معمولی خود به سبک کارتونی با استفاده از افکت های کارتونی رنگی و شگفت انگیز می باشد. محیط اصلی نرم افزار، بسیار کاربر پسند و بصری می باشد، به این معنی که حتی کسانی که مهارت کامپیوتری محدودی دارند هم می توانند ب</div>
+            </div>
+        </a>
+        </div>
+<div class="2xl:focus:bg-indigo-700"></div>
+</div>
+
+     <div class="w-full">
+<div class="flex flex-row justify-between items-center mt-6 px-3">
+    <h3 class="text-2xl">پایان نامه و پروپوزال</h3>
+            <a href="https://edub.ir/phd" class="bg-gray-800 text-white px-5 py-1 flex flex-row items-center rounded justify-center w-36">
+        <svg class="group-hover:text-light-blue-600 text-light-blue-500 ml-2" width="12" height="20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+        </svg>
+        مطالب بیشتر
+    </a>
+        </div>
+<div class="relative divide-y-2 grid grid-cols-1 md:grid-cols-2">
+                <a class="flex shadow-lg  bg-blue-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/phd/view/5629:%D9%86%DA%A9%D8%A7%D8%AA+%D9%85%D9%87%D9%85%DB%8C+%DA%A9%D9%87+%D8%A8%D8%B1%D8%A7%DB%8C+%D8%B3%D8%A7%D8%AE%D8%AA+%D9%BE%D8%A7%D9%88%D8%B1%D9%BE%D9%88%DB%8C%D9%86%D8%AA+%D9%BE%D8%A7%DB%8C%D8%A7%D9%86+%D9%86%D8%A7%D9%85%D9%87+%D8%A8%D8%A7%DB%8C%D8%AF+%D8%A8%D8%AF%D8%A7%D9%86%DB%8C%D8%AF%21">
+            <img src="./images/image.jpg" title="نکات مهمی که برای ساخت پاورپوینت پایان نامه باید بدانید!" alt="نکات مهمی که برای ساخت پاورپوینت پایان نامه باید بدانید!" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+نکات مهمی که برای ساخت پاورپوینت پایان نامه باید بدانید!</h3>
+                <div class="px-3">ساخت و تهیه پاورپوینت پایان نامه برای دفاع یکی از دغدغه های اصلی دانشجویان است. هر چقدر که پایان نامه قوی و کامل باشد ولی نحوه ارائه آن مناسب نباشد، برای افراد حاضر در دفاع پایان نامه جذاب نمی باشد.
+در پاورپوینت دفاع پایان نامه علاوه بر زیبایی باید </div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-blue-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/phd/view/298:%D9%BE%D8%B1%D9%88%D9%BE%D9%88%D8%B2%D8%A7%D9%84">
+            <img src="./images/image (1).jpg" title="پروپوزال" alt="پروپوزال" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+پروپوزال</h3>
+                <div class="px-3">پروپوزال یا روش تحقیق در واقع روش مدون و مکتوب و مستندی است که پژوهشگر و یا محقق با توجه به آن و استناد به آن مسیر تحقیقش را ترسیم و معرفی می کند تا هم برای خویش و تیم تحقیقش به صورت مستند و قابل ارجاع مسیرتحقیقش را شفاف کند و هم برای داوران و ناظران</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-blue-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/phd/view/297:%DA%86%DA%AF%D9%88%D9%86%D9%87+%DB%8C%DA%A9+%D9%BE%D8%B1%D9%88%D9%BE%D9%88%D8%B2%D8%A7%D9%84+%D8%A8%D9%86%D9%88%DB%8C%D8%B3%DB%8C%D9%85%D8%9F">
+            <img src="./images/image (2).jpg" title="چگونه یک پروپوزال بنویسیم؟" alt="چگونه یک پروپوزال بنویسیم؟" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                        <h4 class="px-3 text-base">پروپوزال نویسی</h4>
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+چگونه یک پروپوزال بنویسیم؟</h3>
+                <div class="px-3">&nbsp;شروع انجام هر طرح تحقیقاتی و پژوهشی، نیازمند نوشتن یک طرح پیشنهادی اولیه برای موضوع موردنظر و ارائه روش کار برای به انجام رساندن این طرح می باشد.بسیاری از ما با شنیدن نام پروپوزال به یاد دانشگاه و پایان&zwnj;نامه می افتیم. در حالی که پروپوزال ص</div>
+            </div>
+        </a>
+                <a class="flex shadow-lg  bg-blue-100 rounded-lg m-2 transform translate-y-0 hover:translate-y-1 shadow- flex-col sm:flex-row p-3"
+           href="https://edub.ir/phd/view/296:%D9%86%DA%A9%D8%A7%D8%AA+%D9%85%D9%87%D9%85+%D8%AF%D8%B1+%D9%86%D9%88%D8%B4%D8%AA%D9%86+%D9%BE%D8%B1%D9%88%D9%BE%D9%88%D8%B2%D8%A7%D9%84">
+            <img src="./images/image (3).jpg" title="نکات مهم در نوشتن پروپوزال" alt="نکات مهم در نوشتن پروپوزال" class="w-full object-cover sm:w-32 sm:h-32 rounded-md" />
+            <div class="flex-auto">
+                                    <h3 class="font-bold text-xl p-1"> <svg xmlns="http://www.w3.org/2000/svg" class="w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+    </svg>
+نکات مهم در نوشتن پروپوزال</h3>
+                <div class="px-3">پروپوزال ارائه یک طرح پیشنهادی از ذهنیت خودتان و ایده تان می باشد که تهیه و تحویل استاد راهنمایتان می شود تا ایرادات آن گرفته شود و با حل آن بتوان یک تحقیق کامل ارائه نمود.
+انتخاب موضوع پایان نامه و تهیه پروپوزال زمان بر نمی باشد اما در نوشتن آن بای</div>
+            </div>
+        </a>
+        </div>
+<div class="2xl:focus:bg-indigo-700"></div>
+</div>
+
+</div>
+        </main>
+
+        
+    </div>
+</body>
+</html>
+
